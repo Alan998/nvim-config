@@ -6,11 +6,17 @@ return {
 	event = 'VeryLazy',
 	---@type Flash.Config
 	opts = {
-		--label = { rainbow = { enabled = true }},
+		--label = { rainbow = { enabled = true }, },
 		modes = {
 			-- search enabled by default, can be toggled by <c-s>
-			search = { enabled = true },
-			char = { multi_line = true, jump_labels = true,},
+			search = { enabled = false },
+			char = { 
+				multi_line = true,
+				jump_labels = true,
+				-- When using jump labels, don't use these keys
+				-- This allows using those keys directly after the motion
+				label = { exclude = "hjkliardcpyDPY" },
+			},
 		},
 	},
 	-- stylua: ignore

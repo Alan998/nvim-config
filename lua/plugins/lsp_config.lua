@@ -276,6 +276,7 @@ return {
 					},
 				},
 
+				--[[
 				-- zig
 				zls = {
 					cmd = { 'zls' },
@@ -286,6 +287,7 @@ return {
 						--completion_label_details = false,
 					},
 				},
+				--]]
 			}
 
 			-- Ensure the servers and tools above are installed

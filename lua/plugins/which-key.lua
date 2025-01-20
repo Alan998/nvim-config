@@ -64,7 +64,7 @@ return {
 				{ '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
 				{ '<leader>n', group = '[N]otifications (logs)' },
 				--{ '<leader>r', group = '[R]ename' },
-				{ '<leader>s', group = '[S]earch' },
+				{ '<leader>s', group = '[S]ession' },
 				{ '<leader>t', group = '[T]oggle' },
 				{ '<leader>u', group = 's[U]rround pairs' },
 				{ '<leader>w', group = '[W]orkspace' },

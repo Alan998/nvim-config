@@ -2,7 +2,7 @@
 -- NOTE: Clean logs regularly ( logs are located in ~/.local/state/nvim/log )
 return {
 	'm4xshen/hardtime.nvim',
-	enabled = false,
+	--enabled = false,
 	event = 'BufReadPost',
 	-- add nvim-notify to dependencies to show log messages using nvim-notify
 	dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
@@ -16,6 +16,8 @@ return {
 			['<Up>'] = {},
 			['<Down>'] = {},
 		},
+		-- maximum count of repeated key presses allowed
+		max_count = 5,
 		-- disable for .log, .txt files
 		-- use command :set filetype? to check the filetype
 		disabled_filetypes = {
@@ -52,10 +54,11 @@ return {
 		},
 		callback = function(text)
 			-- default callback
-			--vim.notify(text, vim.log.levels.WARN, { title = 'hardtime' })
-			-- nvim-notify callback
-			vim.notify = require('notify')
 			vim.notify(text, vim.log.levels.WARN, { title = 'hardtime' })
+
+			-- nvim-notify callback
+			--vim.notify = require('notify')
+			--vim.notify(text, vim.log.levels.WARN, { title = 'hardtime' })
 		end,
 	},
 }

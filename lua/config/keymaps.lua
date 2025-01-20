@@ -36,8 +36,8 @@ vim.keymap.set('n', '<C-right>', '<cmd>vertical resize +2<cr>', { desc = 'Increa
 -- Move Lines with <Alt+jk>
 vim.keymap.set('n', '<A-j>', '<cmd>m .+1<cr>==', { desc = 'Move current line down one line' })
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<cr>==', { desc = 'Move current line up one line' })
-vim.keymap.set('v', '<A-j>', '<cmd>m ">+1<cr>gv=gv', { desc = 'Move current selections down one line' })
-vim.keymap.set('v', '<A-k>', '<cmd>m "<-2<cr>gv=gv', { desc = 'Move current selections up one line' })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move current selections up one line' })
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { desc = 'Move current selections down one line' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')

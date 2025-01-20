@@ -32,49 +32,48 @@ return {
 				desc = 'Switch Buffer',
 			},
 			{ '<leader>:', '<cmd>Telescope command_history<CR>', desc = 'Command History' },
-			-- find
-			{ '<leader>fg', '<cmd>Telescope git_files<CR>', desc = 'Find Files (git-files)' },
-			--{ '<leader>fr', '<cmd>Telescope oldfiles<CR>', desc = '[F]ind Recent Files ('.' for repeat)' },
 			-- git
 			{ '<leader>gc', '<cmd>Telescope git_commits<CR>', desc = 'Commits' },
 			{ '<leader>gs', '<cmd>Telescope git_status<CR>', desc = 'Status' },
-			-- search
-			{ "<leader>s'", '<cmd>Telescope registers<CR>', desc = 'Registers' },
-			{ '<leader>sb', '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = 'Buffer' },
-			{ '<leader>sc', '<cmd>Telescope command_history<CR>', desc = 'Command History' },
-			--{ '<leader>sC', '<cmd>Telescope commands<CR>', desc = 'Commands' },
-			{ '<leader>sd', '<cmd>Telescope diagnostics bufnr=0<CR>', desc = '[S]earch [D]iagnostics' },
-			{ '<leader>sD', '<cmd>Telescope diagnostics<CR>', desc = '[S]earch Workspace [D]iagnostics' },
-			{ '<leader>sf', '<cmd>Telescope find_files<CR>', desc = '[S]earch [F]iles' },
-			{ '<leader>sF', '<cmd>Telescope find_files search_dirs=~<CR>', desc = '[S]earch [F]iles from home_dir' },
-			{ '<leader>sg', '<cmd>Telescope live_grep<CR>', desc = '[S]earch by [G]rep' },
-			{ '<leader>sG',
+			{ '<leader>gf', '<cmd>Telescope git_files<CR>', desc = 'Find git-files' },
+			-- find
+			--{ '<leader>fr', '<cmd>Telescope oldfiles<CR>', desc = '[F]ind Recent Files ('.' for repeat)' },
+			{ "<leader>f'", '<cmd>Telescope registers<CR>', desc = 'Registers' },
+			{ '<leader>fb', '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = 'Buffer' },
+			{ '<leader>fc', '<cmd>Telescope command_history<CR>', desc = 'Command History' },
+			--{ '<leader>fC', '<cmd>Telescope commands<CR>', desc = 'Commands' },
+			{ '<leader>fd', '<cmd>Telescope diagnostics bufnr=0<CR>', desc = '[F]ind [D]iagnostics' },
+			{ '<leader>fD', '<cmd>Telescope diagnostics<CR>', desc = '[F]ind Workspace [D]iagnostics' },
+			{ '<leader>ff', '<cmd>Telescope find_files<CR>', desc = '[F]ind [F]iles' },
+			{ '<leader>fF', '<cmd>Telescope find_files search_dirs=~<CR>', desc = ' [F]iles from home_dir' },
+			{ '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = '[F]ind by [G]rep' },
+			{ '<leader>fG',
 				function()
 					local home_dir = os.getenv('HOME')
 					vim.cmd('Telescope live_grep search_dirs=' .. home_dir)
 				end,
-				desc = '[S]earch by [G]rep from home dir'
+				desc = '[F]ind by [G]rep from home dir'
 			},
 			{
-				'<leader>sh',
+				'<leader>fh',
 				function ()
 					require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!**/.git/*' }})
 				end,
-				desc = '[S]earch [H]idden files'
+				desc = '[F]ind [H]idden files'
 			},
-			--{ '<leader>shi', '<cmd>Telescope highlights<CR>', desc = '[S]earch [H]ighlight Groups' },
-			{ '<leader>sH', '<cmd>Telescope help_tags<CR>', desc = '[S]earch [H]elp Pages' },
-			{ '<leader>sj', '<cmd>Telescope jumplist<CR>', desc = '[S]earch [J]umplist' },
-			{ '<leader>sk', '<cmd>Telescope keymaps<CR>',  desc = '[S]earch [K]eymaps' },
-			{ '<leader>sl', '<cmd>Telescope loclist<CR>', desc = 'Location List' },
-			{ '<leader>sM', '<cmd>Telescope man_pages<CR>', desc = 'Man Pages' },
-			{ '<leader>sm', '<cmd>Telescope marks<CR>', desc = 'Jump to Mark' },
-			--{ '<leader>so', '<cmd>Telescope vim_options<CR>', desc = 'Options' },
-			{ '<leader>sr', '<cmd>Telescope resume<CR>', desc = '[S]earch [R]esume' },
-			{ '<leader>sq', '<cmd>Telescope quickfix<CR>', desc = '[S]earch [Q]uickfix List' },
-			{ '<leader>ss', '<cmd>Telescope builtin<CR>', desc = '[S]earch [S]elect Telescope' },
-			{ '<leader>sw', '<cmd>Telescope grep_string<CR>', desc = '[S]earch current [W]ord' },
-			{ '<leader>s.', '<cmd>Telescope oldfiles<CR>', desc = '[S]earch Recent Files ("." for repeat)' },
+			--{ '<leader>fhi', '<cmd>Telescope highlights<CR>', desc = '[F]ind [H]ighlight Groups' },
+			{ '<leader>fH', '<cmd>Telescope help_tags<CR>', desc = '[F]ind [H]elp Pages' },
+			{ '<leader>fj', '<cmd>Telescope jumplist<CR>', desc = '[F]ind [J]umplist' },
+			{ '<leader>fk', '<cmd>Telescope keymaps<CR>',  desc = '[F]ind [K]eymaps' },
+			{ '<leader>fl', '<cmd>Telescope loclist<CR>', desc = '[F]ind Location List' },
+			{ '<leader>fM', '<cmd>Telescope man_pages<CR>', desc = '[F]ind Man Pages' },
+			{ '<leader>fm', '<cmd>Telescope marks<CR>', desc = '[F]ind Jump to Mark' },
+			--{ '<leader>fo', '<cmd>Telescope vim_options<CR>', desc = '[F]ind Options' },
+			{ '<leader>fr', '<cmd>Telescope resume<CR>', desc = '[F]ind [R]esume' },
+			{ '<leader>fq', '<cmd>Telescope quickfix<CR>', desc = '[F]ind [Q]uickfix List' },
+			{ '<leader>fs', '<cmd>Telescope builtin<CR>', desc = '[F]ind [S]elect Telescope' },
+			{ '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = '[F]ind current [W]ord' },
+			{ '<leader>f.', '<cmd>Telescope oldfiles<CR>', desc = '[F]ind Recent Files ("." for repeat)' },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -148,29 +147,29 @@ return {
 					winblend = 10,
 					previewer = false,
 				})
-			end, { desc = '[/] Fuzzily search in current buffer' })
+			end, { desc = '[/] Fuzzily find in current buffer' })
 
 			-- It's also possible to pass additional configuration options.
 			--  See `:help telescope.builtin.live_grep()` for information about particular keys
-			vim.keymap.set('n', '<leader>s/', function()
+			vim.keymap.set('n', '<leader>f/', function()
 				builtin.live_grep {
 					grep_open_files = true,
 					prompt_title = 'Live Grep in Open Files',
 				}
-			end, { desc = '[S]earch [/] in Open Files' })
+			end, { desc = '[F]ind [/] in Open Files' })
 
-			-- Shortcut for searching your Neovim configuration files
-			vim.keymap.set('n', '<leader>sn', function()
+			-- Shortcut for finding your Neovim configuration files
+			vim.keymap.set('n', '<leader>fn', function()
 				builtin.find_files { cwd = vim.fn.stdpath 'config' }
-			end, { desc = '[S]earch [N]eovim files' })
+			end, { desc = '[F]ind [N]eovim files' })
 		end,
 	},
 	{
 		'nvim-telescope/telescope-file-browser.nvim',
 		dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
 		keys = {
-			{ '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', desc = 'Open Telescope file browser at the path of the current buffer' },
-			{ '<leader>fB', '<cmd>Telescope file_browser path=~ select_buffer=true<CR>', desc = 'Open Telescope file browser at the path of home' },
+			{ '<leader>b', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', desc = 'Open Telescope file browser at the path of the current buffer' },
+			{ '<leader>B', '<cmd>Telescope file_browser path=~ select_buffer=true<CR>', desc = 'Open Telescope file browser at the path of home' },
 		},
 	},
 }
