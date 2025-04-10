@@ -7,21 +7,20 @@ return {
 		sort_mru = true, -- sort buffer by most recently used
 		enabled = true,
 		symbols = {
-			--current = ' ',
-			current = ' ',
-			split = ' ',
+			current = '  ',
+			--current = '  ',
+			split = '  ',
 			alternate = ' 󱀲 ',
-			hidden = ' ',
-			locked = ' 󰌾',
-			ro = ' 󰈈',
-			edited = ' ',
-			--edited = ' ',
-			terminal = ' ',
-			default_file = ' ',
-			--terminal_symbol = ' '
+			hidden = '  ',
+			locked = ' 󰌾 ',
+			ro = ' 󰈈 ',
+			edited = '  ',
+			--edited = '  ',
+			terminal = '  ',
+			default_file = '  ',
+			--terminal_symbol = '  '
 		},
 	},
 	cmd = { 'JABSOpen' },
 	--config = true,
-
 }
