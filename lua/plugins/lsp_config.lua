@@ -13,7 +13,7 @@ return {
 		},
 	},
 	{
-		'williamboman/mason.nvim',
+		'mason-org/mason.nvim',
 		cmd = 'Mason',
 		build = ':MasonUpdate',
 		opts = {
@@ -30,19 +30,19 @@ return {
 			},
 		},
 	},
-	--{ 'Bilal2453/luvit-meta', lazy = true },
 	{
 		-- Main LSP Configuration
 		'neovim/nvim-lspconfig',
 		event = 'BufReadPost',
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
-			{ 'williamboman/mason.nvim', config = true, }, -- NOTE: Must be loaded before dependants
-			'williamboman/mason-lspconfig.nvim',
+			-- Mason must be loaded before its dependents so we need to set it up here
+			{ 'mason-org/mason.nvim', config = true, },
+			'mason-org/mason-lspconfig.nvim',
 			'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-			-- Allows extra capabilities provided by nvim-cmp
-			'hrsh7th/cmp-nvim-lsp',
+			-- Allows extra capabilities provided by 
+			'saghen/blink.cmp',
 		},
 		cmd = 'LspStart',
 		keys = {
@@ -221,8 +221,7 @@ return {
 			--  By default, Neovim doesn't support everything that is in the LSP specification.
 			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
 			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+			local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.

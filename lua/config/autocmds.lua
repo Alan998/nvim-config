@@ -2,7 +2,7 @@ local function augroup(name)
 	return vim.api.nvim_create_augroup('my_augroup' .. name, { clear = true })
 end
 
--- Highlight on yank
+-- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
 	group = augroup('highlight_yank'),
 	callback = function()
@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 
--- Wrap and check for spell in text filetypes
+-- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd('FileType', {
 	group = augroup('wrap_spell'),
 	pattern = { 'gitcommit', 'markdown' },
@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 
--- Auto create dir when saving a file, in case some intermediate directory does not exist
+-- auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 	group = augroup('auto_create_dir'),
 	callback = function(event)
@@ -81,7 +81,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 	end,
 })
 
--- Do not continue comments if O, o, or enter pressed
+-- do not continue comments if O, o, or enter pressed
 vim.api.nvim_create_autocmd('BufEnter', {
 	group = augroup('comment_format_opt'),
 	pattern = '*',
@@ -93,7 +93,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 	end,
 })
 
--- Change vim-matchup highlight colors
+-- change vim-matchup highlight colors
 vim.api.nvim_create_autocmd('ColorScheme', {
 	group = augroup('matchup_matchparen_highlight'),
 	pattern = '*',
