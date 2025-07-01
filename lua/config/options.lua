@@ -8,6 +8,22 @@ vim.opt.pyxversion = 3
 -- separate vim plugins from neovim in case vim is still in use
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")
 
+-- setup system clipboard for WSL
+if vim.fn.has('wsl') == 1 then
+       vim.g.clipboard = {
+               name = 'WslClipboard',
+               copy = {
+                       ['+'] = 'clip.exe',
+                       ['*'] = 'clip.exe',
+               },
+               paste = {
+                       ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                       ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+               },
+               cache_enabled = 0,
+       }
+end
+
 -- some tweaks to make netrw better
 -- Keep the current directory and the browsing directory synced.
 -- This helps to avoid the move files error.

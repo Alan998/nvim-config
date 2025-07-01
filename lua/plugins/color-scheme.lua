@@ -33,8 +33,9 @@ return {
 	{
 		'ellisonleao/gruvbox.nvim',
 		--enabled = false,
-		event = 'VeryLazy',
+		lazy = true,
 		priority = 1000,
+		terminal_colors = true,
 		opts = {
 			undercurl = true,
 			underline = true,
