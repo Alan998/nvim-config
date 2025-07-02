@@ -10,7 +10,7 @@ return {
 		modes = {
 			-- search enabled by default, can be toggled by <c-s>
 			search = { enabled = false },
-			char = { 
+			char = {
 				multi_line = true,
 				jump_labels = true,
 				-- When using jump labels, don't use these keys

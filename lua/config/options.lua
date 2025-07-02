@@ -63,7 +63,7 @@ end
 vim.opt.background = 'dark' -- Set background colors (dark/light)
 vim.termguicolors = true -- True color support
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 vim.opt.cursorline = true -- Show which line your cursor is on
 vim.opt.lazyredraw = true -- Redraw the screen less during tasks
 vim.opt.number = true -- Make line numbers default
