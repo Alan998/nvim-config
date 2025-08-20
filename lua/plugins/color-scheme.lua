@@ -1,14 +1,3 @@
---[[ 
---  setup the chosen color scheme:
---      ...
---      config = funcion()
---          require('colorscheme_name').setup{
-	--              --  ... color_scheme_config_options ...
-	--          }
-	--          vim.cmd[[colorscheme colorscheme_name]]
---      end
---]]
-
 return {
 	{
 		'folke/tokyonight.nvim',
@@ -52,7 +41,10 @@ return {
 			contrast = 'hard', -- can be 'hard', 'soft' or empty string
 			-- change highlight of group Substitute so plugin flash's labels have different colors
 			-- overrides = { Substitute = { fg = '#1d2021', bg = '#ebdbb2' } },
-			overrides = { Substitute = { fg = '#1d2021', bg = '#d3869b' }, debugPC = { link = 'DiffAdd' }, },
+			overrides = {
+				Substitute = { fg = '#1d2021', bg = '#d3869b' },
+				--LspReferenceText = { bg = '#504945' }
+			},
 			dim_inactive = true,
 			transparent_mode = true,
 		},

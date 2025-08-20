@@ -22,49 +22,49 @@ return {
 				--    See the README about individual language/framework/plugin snippets:
 				--    https://github.com/rafamadriz/friendly-snippets
 				-- {
-				--   'rafamadriz/friendly-snippets',
-				--   config = function()
-				--     require('luasnip.loaders.from_vscode').lazy_load()
-				--   end,
-				-- },
+					--   'rafamadriz/friendly-snippets',
+					--   config = function()
+						--     require('luasnip.loaders.from_vscode').lazy_load()
+						--   end,
+						-- },
+					},
+					opts = {},
+				},
+				'folke/lazydev.nvim',
 			},
-			opts = {},
-		},
-		'folke/lazydev.nvim',
-	},
-	opts = {
-		keymap = {
-			preset = 'default',
-			-- ['<C-e>'] = { 'hide' }, -- use this to close the menu and undo the select
-			['<C-s>'] = { 'select_and_accept' },
-		},
-		appearance = {
-			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-			-- adjusts spacing to ensure icons are aligned
-			nerd_font_variant = 'normal',
-		},
-		completion = {
-			-- By default, you may press `<c-space>` to show the documentation.
-			-- Optionally, set `auto_show = true` to show the documentation after a delay.
-			documentation = { auto_show = false, auto_show_delay_ms = 500 },
-			list = {
-				selection = { preselect = false, auto_insert = true },
-			},
-		},
-		sources = {
-			default = { 'lsp', 'buffer', 'path', 'snippets', 'lazydev' },
-			providers = {
-				lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-			},
-		},
+			opts = {
+				keymap = {
+					preset = 'default',
+					-- ['<C-e>'] = { 'hide' }, -- use this to close the menu and undo the select
+					['<C-s>'] = { 'select_and_accept' },
+				},
+				appearance = {
+					-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+					-- adjusts spacing to ensure icons are aligned
+					nerd_font_variant = 'normal',
+				},
+				completion = {
+					-- By default, you may press `<c-space>` to show the documentation.
+					-- Optionally, set `auto_show = true` to show the documentation after a delay.
+					documentation = { auto_show = false, auto_show_delay_ms = 500 },
+					list = {
+						selection = { preselect = false, auto_insert = true },
+					},
+				},
+				sources = {
+					default = { 'buffer', 'lsp', 'path', 'snippets', 'lazydev' },
+					providers = {
+						lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+					},
+				},
 
-		snippets = { preset = 'luasnip' },
-		-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
-		-- which automatically downloads a prebuilt binary when enabled.
-		--
-		fuzzy = { implementation = 'prefer_rust_with_warning' },
-		-- Shows a signature help window while you type arguments for a function
-		signature = { enabled = true },
-	},
-}
+				snippets = { preset = 'luasnip' },
+				-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
+				-- which automatically downloads a prebuilt binary when enabled.
+				--
+				fuzzy = { implementation = 'prefer_rust_with_warning' },
+				-- Shows a signature help window while you type arguments for a function
+				signature = { enabled = true },
+			},
+		}
 

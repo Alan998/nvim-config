@@ -56,7 +56,7 @@ vim.keymap.set('v', '<', '<gv', { desc = 'Outdent current selections' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent current selections' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -79,6 +79,9 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Toggle Netrw (enable if not using neo-tree)
 --vim.keymap.set('n', '<leader>E', ':Lexplore<CR>', { desc = 'Toggle netrw' })
+
+-- Unamp q: to show command history, use Telescope instead
+vim.keymap.set('n', 'q:', '<nop>')
 
 -- Toggle auto complete
 local function toggle_auto_complete()

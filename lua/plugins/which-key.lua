@@ -59,11 +59,8 @@ return {
 			spec = {
 				{ '<leader>c', group = '[C]ode LSP', mode = { 'n', 'x' } },
 				{ '<leader>d', group = '[D]ocument / [D]ebug print' },
-				{ '<leader>f', group = '[F]ind / [F]ile' },
-				{ '<leader>g', group = 'find [G]it files' },
-				{ '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+				{ '<leader>f', group = '[F]ind' },
 				{ '<leader>n', group = '[N]otifications (logs)' },
-				--{ '<leader>r', group = '[R]ename' },
 				{ '<leader>s', group = '[S]ession' },
 				{ '<leader>t', group = '[T]oggle' },
 				{ '<leader>u', group = 's[U]rround pairs' },
