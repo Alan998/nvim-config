@@ -35,7 +35,7 @@ return {
 			opts = {
 				keymap = {
 					preset = 'default',
-					-- ['<C-e>'] = { 'hide' }, -- use this to close the menu and undo the select
+					-- use <C-e> to close the menu and undo the select
 					['<C-s>'] = { 'select_and_accept' },
 				},
 				appearance = {
@@ -48,7 +48,22 @@ return {
 					-- Optionally, set `auto_show = true` to show the documentation after a delay.
 					documentation = { auto_show = false, auto_show_delay_ms = 500 },
 					list = {
+						-- When preselect is `true`, it will automatically select the first item in the completion list
+						-- When auto_insert `true`, it inserts the completion item automatically when selecting it
+						--auto_show = true,
 						selection = { preselect = false, auto_insert = true },
+					},
+				},
+				cmdline = {
+					enabled = true,
+					completion = {
+						menu = { auto_show = true },
+						list = {
+							selection = {
+								preselect = false,
+								auto_insert = true,
+							},
+						},
 					},
 				},
 				sources = {
@@ -61,7 +76,6 @@ return {
 				snippets = { preset = 'luasnip' },
 				-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
 				-- which automatically downloads a prebuilt binary when enabled.
-				--
 				fuzzy = { implementation = 'prefer_rust_with_warning' },
 				-- Shows a signature help window while you type arguments for a function
 				signature = { enabled = true },
