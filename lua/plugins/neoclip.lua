@@ -14,18 +14,20 @@ end
 
 return {
 	'AckslD/nvim-neoclip.lua',
+	lazy = true,
+	--event = 'VimEnter',
 	dependencies = {
 		{'nvim-telescope/telescope.nvim'},
-		{'kkharji/sqlite.lua'},
-		--{'ibhagwan/fzf-lua'},
+		--{'kkharji/sqlite.lua'},
+		{'ibhagwan/fzf-lua'},
 	},
 	keys = {
 		{ '<leader>fy',
 			function()
 				require('telescope').extensions.neoclip.default()
 			end,
-			desc = '[f]ind history [y]anks (neoclip)' },
-		{ '<leader>tc', function() require('neoclip').toggle() end, desc = '[T]oggle neo[C]lip' },
+			desc = 'Find history yanks (neoclip)' },
+		--{ '<leader>tC', function() require('neoclip').toggle() end, desc = 'Toggle neoclip' },
 	},
 	opts = {
 		history = 64,
@@ -33,5 +35,7 @@ return {
 			return not all(data.event.regcontents, is_whitespace)
 		end,
 	},
-	config = true,
+	config = function()
+		require('neoclip').setup()
+	end,
 }

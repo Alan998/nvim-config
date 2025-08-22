@@ -11,10 +11,10 @@ vim.keymap.set({ 'n', 'x' }, 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, si
 vim.keymap.set({ 'n', 'x' }, 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
 
 -- Windows
-vim.keymap.set('n', '<leader>ww', '<C-w>p', { desc = 'Move to another window', remap = true })
+--vim.keymap.set('n', '<leader>ww', '<C-w>w', { desc = 'Cycle through open windows', remap = true })
 vim.keymap.set('n', '<leader>wc', '<C-w>c', { desc = 'Close current window', remap = true })
-vim.keymap.set('n', '<leader>-', '<C-w>p', { desc = 'Split window below', remap = true })
-vim.keymap.set('n', '<leader>|', '<C-w>p', { desc = 'Split window to the right', remap = true })
+vim.keymap.set('n', '<leader>-', '<C-w>s', { desc = 'Split window above', remap = true })
+vim.keymap.set('n', '<leader>|', '<C-w>v', { desc = 'Split window to the right', remap = true })
 -- Keybinds to make split navigation easier.
 -- Use <CTRL+hjkl> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -58,14 +58,6 @@ vim.keymap.set('v', '>', '>gv', { desc = 'Indent current selections' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 -- Join lines and jump to the original position
 vim.keymap.set('n', 'J', 'mzJ`z')
 
@@ -80,20 +72,8 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- Toggle Netrw (enable if not using neo-tree)
 --vim.keymap.set('n', '<leader>E', ':Lexplore<CR>', { desc = 'Toggle netrw' })
 
--- Unamp q: to show command history, use Telescope instead
+-- Unmap q: to show command history, use Telescope instead
 vim.keymap.set('n', 'q:', '<nop>')
 
--- Toggle auto complete
-local function toggle_auto_complete()
-	local cmp = require('cmp')
-	local current_setting = cmp.get_config().completion.autocomplete
-	if current_setting and #current_setting > 0 then
-		cmp.setup({ completion = { autocomplete = false } })
-		vim.notify("Disabled auto completion")
-	else
-		cmp.setup({ completion = { autocomplete = { cmp.TriggerEvent.TextChanged } } })
-		vim.notify("Enabled auto completion")
-	end
-end
-vim.api.nvim_create_user_command('CmpToggle', toggle_auto_complete, {})
-vim.keymap.set('n', "<leader>tc", "<cmd>CmpToggle<cr>", { desc = "toggle auto complete"})
+-- Copy to system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })

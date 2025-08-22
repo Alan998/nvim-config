@@ -8,13 +8,13 @@ return {
 	dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
 	cmd = { 'Hardtime' },
 	keys = {
-		{ '<leader>tH', '<cmd>Hardtime toggle<CR>', desc = '[T]oggle [H]ardtime'},
+		{ '<leader>tH', '<cmd>Hardtime toggle<CR>', desc = 'Toggle Hardtime'},
 	},
 	opts = {
 		-- enabling scrolling up and down
 		disabled_keys = {
-			['<Up>'] = {},
-			['<Down>'] = {},
+			--['<Up>'] = {},
+			--['<Down>'] = {},
 		},
 		-- maximum count of repeated key presses allowed
 		max_count = 5,

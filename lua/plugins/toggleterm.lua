@@ -7,7 +7,7 @@ return {
 	opts = {
 		open_mapping = [[<c-\>]],
 		direction = 'vertical',
-		size = 55,
+		size = 80,
 		shade_terminals = false,
 	},
 	keys = {

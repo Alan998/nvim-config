@@ -64,7 +64,8 @@ return {
 					{
 						'filename',
 						path = 0,
-						symbols = { modified = ' ', readonly = '󱧉 ' },
+						--symbols = { modified = ' ', readonly = '󱧉 ' },
+						symbols = { modified = '󰷈 ', readonly = '󱧉 ' },
 					},
 				},
 				lualine_y = {},

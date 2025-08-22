@@ -5,18 +5,20 @@ return {
 	event = 'VeryLazy',
 	cmd = { 'FocusEnable', 'FocusToggle', 'FocusDisable', 'FocusSplitNicely' },
 	keys = {
-		{ '<leader>e', function() require('focus').focus_equalise() end, desc = 'equalises the splits' },
+		{ '<leader>wa', function() require('focus').focus_autoresize() end, desc = 'auto resize windows' },
+		{ '<leader>we', function() require('focus').focus_equalise() end, desc = 'equalises window splits' },
+		{ '<leader>wm', function() require('focus').focus_maximise() end, desc = 'maximise current window' },
 		{ '<leader>tf', function() require('focus').focus_toggle() end, desc = 'toggle focus plugin' },
 	},
 	opts = {
 		autoresize = {
-			height_quickfix = 5,
+			height_quickfix = 8,
 		},
 	},
 	config = function ()
 		require('focus').setup()
 		local ignore_filetypes = { 'neo-tree', 'trouble' }
-		local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
+		local ignore_buftypes = { 'nofile', 'popup', 'prompt' }
 
 		local augroup =
 		vim.api.nvim_create_augroup('FocusDisable', { clear = true })

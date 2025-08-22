@@ -1,18 +1,18 @@
-return {
-	'mrcjkb/rustaceanvim',
-	version = '^6', -- Recommended
-	lazy = false, -- This plugin is already lazy
-	opts = {
-		server = {
-			on_attach = function(client, bufnr)
-				-- you can also put keymaps in here
-			end,
+vim.g.rustaceanvim = {
+	-- Plugin configuration
+	tools = {},
+	-- LSP configuration
+	server = {
+		--on_attach = function(client, bufnr)
+			-- put keymaps in here
+		--end,
 			default_settings = {
 				-- rust-analyzer language server configuration
 				['rust-analyzer'] = {
 					checkOnType = true,
 				},
 			},
-		},
-	}
+	},
+	-- DAP configuration
+	dap = {},
 }

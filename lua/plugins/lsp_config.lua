@@ -69,10 +69,10 @@ return {
 		cmd = 'LspStart',
 		keys = {
 			{ '<leader>cl', '<cmd>LspInfo<cr>', desc = 'Lsp Info' },
-			{ '<leader>cs', '<cmd>LspStart<cr>', desc = 'Lsp [S]tart' },
-			{ '<leader>ct', '<cmd>LspStop<cr>', desc = 'Lsp S[t]op' },
-			{ '<leader>ch', vim.lsp.buf.hover, desc = '[H]over information' },
-			{ '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, desc = '[T]oggle Lsp [D]iagnostics' },
+			{ '<leader>cs', '<cmd>LspStart<cr>', desc = 'Lsp start' },
+			{ '<leader>ct', '<cmd>LspStop<cr>', desc = 'Lsp stop' },
+			{ '<leader>ch', vim.lsp.buf.hover, desc = 'Hover information' },
+			{ '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, desc = 'Toggle Lsp diagnostics' },
 		},
 		config = function()
 			--  This function gets run when an LSP attaches to a particular buffer.
@@ -97,7 +97,7 @@ return {
 					map('gD', vim.lsp.buf.declaration, 'Goto declaration')
 
 					-- Find references for the word under your cursor.
-					map('gr', require('telescope.builtin').lsp_references, 'Goto references')
+					map('gr', require('telescope.builtin').lsp_references, '')
 
 					-- Jump to the implementation of the word under your cursor.
 					--  Useful when your language has ways of declaring types without an actual implementation.
@@ -118,7 +118,7 @@ return {
 
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map('<leader>cr', vim.lsp.buf.rename, 'Code rename variable under cursor')
+					map('<leader>cr', vim.lsp.buf.rename, 'Rename variable under cursor')
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
@@ -236,7 +236,6 @@ return {
 					},
 				},
 				-- pyright = {},
-				-- rust_analyzer = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
 				lua_ls = {

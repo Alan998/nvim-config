@@ -13,9 +13,9 @@ return {
 		}
 	},
 	keys = {
-		{'<leader>sl', function() require("nvim-possession").list() end, desc='list sessions' },
-		{'<leader>sn', function() require("nvim-possession").new() end, desc='new sessions' },
-		{'<leader>su', function() require("nvim-possession").update() end, desc='update sessions' },
-		{'<leader>sd', function() require("nvim-possession").delete() end, desc='delete sessions' },
+		{'<leader>sl', function() require("nvim-possession").list() end, desc='List sessions' },
+		{'<leader>sn', function() require("nvim-possession").new() end, desc='New sessions' },
+		{'<leader>su', function() require("nvim-possession").update() end, desc='Update sessions' },
+		{'<leader>sd', function() require("nvim-possession").delete() end, desc='Delete sessions' },
 	},
 }

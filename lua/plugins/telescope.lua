@@ -11,6 +11,7 @@
 --
 -- This opens a window that shows you all of the keymaps for the current
 -- Telescope picker.
+
 return {
 	{ -- Fuzzy Finder (files, lsp, etc)
 		'nvim-telescope/telescope.nvim',
@@ -52,84 +53,83 @@ return {
 			{ '<leader>fD', '<cmd>Telescope diagnostics<CR>', desc = 'Find workspace diagnostics' },
 			{ '<leader>ff', '<cmd>Telescope find_files<CR>', desc = 'Find files' },
 			{ '<leader>fF',
-			function()
-				-- prompt the user for a directory path
-				local dir = vim.fn.input('Enter directory to search in: ', '', 'dir')
+				function()
+					-- prompt the user for a directory path
+					local dir = vim.fn.input('Enter directory to search in: ', '', 'dir')
 
-				-- exit without doing anything if the user left the input empty
-				if dir == '' then return end
+					-- exit without doing anything if the user left the input empty
+					if dir == '' then return end
 
-				require('telescope.builtin').find_files({ search_dirs = { dir } })
-			end,
-			desc = 'Find files from input dir'
+					require('telescope.builtin').find_files({ search_dirs = { dir } })
+				end,
+				desc = 'Find files from input dir',
+			},
+			{ '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = 'Find by grep' },
+			{ '<leader>fG',
+				function()
+					-- prompt the user for a directory path
+					local dir = vim.fn.input('Enter directory to search in: ', '', 'dir')
+
+					-- exit without doing anything if the user left the input empty
+					if dir == '' then return end
+
+					require('telescope.builtin').live_grep({search_dirs = { dir }})
+				end,
+				desc = 'Find by grep from input dir',
+			},
+			{ '<leader>fj', '<cmd>Telescope jumplist<CR>', desc = 'Find jumplist' },
+			{ '<leader>fk', '<cmd>Telescope keymaps<CR>',  desc = 'Find keymaps' },
+			{ '<leader>fl', '<cmd>Telescope loclist<CR>', desc = 'Find location list' },
+			{ '<leader>fm', '<cmd>Telescope marks<CR>', desc = 'Find marks' },
+			{ '<leader>fr', '<cmd>Telescope oldfiles<CR>', desc = 'Find recent files' },
+			{ '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = 'Find current word' },
 		},
-		{ '<leader>fg', '<cmd>Telescope live_grep<CR>', desc = 'Find by grep' },
-		{ '<leader>fG',
-		function()
-			-- prompt the user for a directory path
-			local dir = vim.fn.input('Enter directory to search in: ', '', 'dir')
-
-			-- exit without doing anything if the user left the input empty
-			if dir == '' then return end
-
-			require('telescope.builtin').live_grep({search_dirs = { dir }})
+		config = function()
+			require('telescope').setup {
+				defaults = {
+					prompt_prefix = ' ',
+					selection_caret = ' ',
+					layout_strategy = 'flex',
+					initial_mode = 'normal',
+					mappings = {
+						i = {
+							['<C-v>'] = require('telescope.actions.layout').toggle_preview,
+							['<C-n>'] = require('telescope.actions').cycle_history_next,
+							['<C-p>'] = require('telescope.actions').cycle_history_prev,
+							['<C-f>'] = require('telescope.actions').preview_scrolling_down,
+							['<C-b>'] = require('telescope.actions').preview_scrolling_up,
+						},
+						n = {
+							['q'] = require('telescope.actions').close,
+						},
+					},
+				},
+				-- pickers to also search for hidden files
+				--[[
+				pickers = {
+					find_files = {
+						-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+						find_command = { rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+					},
+				},
+				--]]
+				extensions = {
+					['ui-select'] = {
+						require('telescope.themes').get_dropdown(),
+					},
+				},
+			}
+			-- Enable Telescope extensions if they are installed
+			pcall(require('telescope').load_extension, 'fzf')
+			pcall(require('telescope').load_extension, 'ui-select')
 		end,
-		desc = 'Find by grep from input dir'
 	},
-	{ '<leader>fj', '<cmd>Telescope jumplist<CR>', desc = 'Find jumplist' },
-	{ '<leader>fk', '<cmd>Telescope keymaps<CR>',  desc = 'Find keymaps' },
-	{ '<leader>fl', '<cmd>Telescope loclist<CR>', desc = 'Find location list' },
-	{ '<leader>fm', '<cmd>Telescope marks<CR>', desc = 'Find marks' },
-	{ '<leader>fr', '<cmd>Telescope oldfiles<CR>', desc = 'Find recent files' },
-	{ '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = 'Find current word' },
-},
-config = function()
-	require('telescope').setup {
-		defaults = {
-			prompt_prefix = ' ',
-			selection_caret = ' ',
-			layout_strategy = 'flex',
-			initial_mode = 'normal',
-			mappings = {
-				i = {
-					['<C-v>'] = require('telescope.actions.layout').toggle_preview,
-					['<C-n>'] = require('telescope.actions').cycle_history_next,
-					['<C-p>'] = require('telescope.actions').cycle_history_prev,
-					['<C-f>'] = require('telescope.actions').preview_scrolling_down,
-					['<C-b>'] = require('telescope.actions').preview_scrolling_up,
-				},
-				n = {
-					['q'] = require('telescope.actions').close,
-				},
-			},
+	{
+		'nvim-telescope/telescope-file-browser.nvim',
+		dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+		keys = {
+			{ '<leader>b', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', desc = 'open Telescope file_browser in current buffer' },
+			--{ '<leader>B', '<cmd>Telescope file_browser path=~ select_buffer=true<CR>', desc = 'Open Telescope file browser at the path of home' },
 		},
-		-- pickers to also search for hidden files
-		--[[
-		pickers = {
-			find_files = {
-				-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-				find_command = { rg', '--files', '--hidden', '--glob', '!**/.git/*' },
-			},
-		},
-		--]]
-		extensions = {
-			['ui-select'] = {
-				require('telescope.themes').get_dropdown(),
-			},
-		},
-	}
-
-	-- Enable Telescope extensions if they are installed
-	pcall(require('telescope').load_extension, 'fzf')
-	pcall(require('telescope').load_extension, 'ui-select')
-end,
-},
-{
-	'nvim-telescope/telescope-file-browser.nvim',
-	dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-	keys = {
-		{ '<leader>b', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', desc = 'open Telescope file_browser in current buffer' },
-		--{ '<leader>B', '<cmd>Telescope file_browser path=~ select_buffer=true<CR>', desc = 'Open Telescope file browser at the path of home' },
 	},
-},
 }

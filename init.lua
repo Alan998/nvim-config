@@ -8,6 +8,7 @@ vim.g.have_nerd_font = true
 require 'config.options'
 require 'config.keymaps'
 require 'config.autocmds'
+require 'config.rustceanvim'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'

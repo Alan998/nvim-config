@@ -27,8 +27,8 @@ return {
 				local node = state.tree:get_node()
 				local path = node:get_id()
 				-- Linux: open file in default application
-				--vim.fn.jobstart({ 'xdg-open', path }, { detach = true })
-				vim.fn.jobstart({'kitty', '--', 'nvim', '--noswapfile', path }, { detach = true })
+				vim.fn.jobstart({ 'xdg-open', path }, { detach = true })
+				--vim.fn.jobstart({'kitty', '--', 'nvim', '--noswapfile', path }, { detach = true })
 
 				-- Windows: Without removing the file from the path, it opens in code.exe instead of explorer.exe
 				local p

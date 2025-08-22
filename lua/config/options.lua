@@ -10,18 +10,18 @@ vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")
 
 -- setup system clipboard for WSL
 if vim.fn.has('wsl') == 1 then
-       vim.g.clipboard = {
-               name = 'WslClipboard',
-               copy = {
-                       ['+'] = 'clip.exe',
-                       ['*'] = 'clip.exe',
-               },
-               paste = {
-                       ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-                       ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-               },
-               cache_enabled = 0,
-       }
+	vim.g.clipboard = {
+		name = 'WslClipboard',
+		copy = {
+			['+'] = 'clip.exe',
+			['*'] = 'clip.exe',
+		},
+		paste = {
+			['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
 end
 
 -- some tweaks to make netrw better
@@ -45,21 +45,6 @@ vim.schedule(function()
 end)
 --]]
 
-if vim.fn.has('wsl') == 1 then
-	vim.g.clipboard = {
-		name = 'WslClipboard',
-		copy = {
-			['+'] = 'clip.exe',
-			['*'] = 'clip.exe',
-		},
-		paste = {
-			['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-			['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-		},
-		cache_enabled = 0,
-	}
-end
-
 vim.opt.background = 'dark' -- Set background colors (dark/light)
 vim.termguicolors = true -- True color support
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -71,8 +56,13 @@ vim.opt.relativenumber = true -- Use relative line numbers
 vim.opt.mouse = 'a' -- Enable mouse mode
 vim.opt.showmode = false -- Don't show the mode, since it's already in the status line
 vim.opt.breakindent = true -- Enable break indent
+vim.opt.undodir = '/home/alan/.local/share/nvim/undo'
 vim.opt.undofile = true -- Save undo history, undo dir is located at ~/.local/share/nvim/undo
 vim.opt.undolevels = 128
+vim.o.shell = '/usr/bin/zsh'
+
+-- Disable cursor bliking in terminal, the rest of the settings are default
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon0-TermCursor"
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -104,4 +94,3 @@ vim.opt.smartindent = true -- Insert indents automatically
 vim.opt.tabstop = 4 -- Number of spaces tabs count for
 vim.opt.whichwrap = '<,>,[,]'
 vim.opt.wrap = false -- Disable line wrap
-
