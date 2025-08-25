@@ -68,11 +68,16 @@ return {
 		},
 		cmd = 'LspStart',
 		keys = {
-			{ '<leader>cl', '<cmd>LspInfo<cr>', desc = 'Lsp Info' },
-			{ '<leader>cs', '<cmd>LspStart<cr>', desc = 'Lsp start' },
-			{ '<leader>ct', '<cmd>LspStop<cr>', desc = 'Lsp stop' },
-			{ '<leader>ch', vim.lsp.buf.hover, desc = 'Hover information' },
 			{ '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, desc = 'Toggle Lsp diagnostics' },
+			{ '<leader>dl',
+				function()
+					local toggle_config = not vim.diagnostic.config().virtual_lines
+					vim.diagnostic.config({ virtual_lines = toggle_config })
+				end,
+				desc = 'Toggle diagnostic virtual_lines'},
+			{ 'gh', vim.lsp.buf.hover, desc = 'Hover Lsp information' },
+			{'<leader>dh', function() vim.diagnostic.open_float() end, desc = 'Diagnostic hover window'},
+			{'<leader>dt', function() require('telescope.builtin').diagnostics() end, desc = 'Telescope diagnostic'},
 		},
 		config = function()
 			--  This function gets run when an LSP attaches to a particular buffer.
@@ -97,7 +102,7 @@ return {
 					map('gD', vim.lsp.buf.declaration, 'Goto declaration')
 
 					-- Find references for the word under your cursor.
-					map('gr', require('telescope.builtin').lsp_references, '')
+					--map('gr', require('telescope.builtin').lsp_references, '')
 
 					-- Jump to the implementation of the word under your cursor.
 					--  Useful when your language has ways of declaring types without an actual implementation.
@@ -108,23 +113,21 @@ return {
 					--  the definition of its *type*, not where it was *defined*.
 					map('gt', require('telescope.builtin').lsp_type_definitions, 'Goto type definition')
 
-					-- Fuzzy find all the symbols in your current buffer(document).
+					-- Fuzzy find all the symbols in the current buffer(document).
 					--  Symbols are things like variables, functions, types, etc.
 					map('<leader>fs', require('telescope.builtin').lsp_document_symbols, 'Find symbols')
 
-					-- Fuzzy find all the symbols in your current workspace.
+					-- Fuzzy find all the symbols in the current workspace.
 					--  Similar to document symbols, except searches over your entire project.
 					map('<leader>fS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Find workspace symbols')
 
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map('<leader>cr', vim.lsp.buf.rename, 'Rename variable under cursor')
+					-- map('<leader>cr', vim.lsp.buf.rename, 'Rename variable under cursor')
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map('<leader>ca', vim.lsp.buf.code_action, 'Code action', { 'n', 'x' })
-
-					map('<leader>dh', vim.diagnostic.open_float, 'Diagnostic hover window')
+					-- map('<leader>ca', vim.lsp.buf.code_action, 'Code action', { 'n', 'x' })
 
 
 					-- The following two autocommands are used to highlight references of the
@@ -203,9 +206,16 @@ return {
 							-- prefix = 'icons',
 						},
 						--virtual_text = false,
+						virtual_lines = false,
 						severity_sort = true,
 					}
 					vim.diagnostic.config(vim.deepcopy(diagnostics_opts))
+
+					-- config Telescope diagnostic icons
+					for type, icon in pairs(diagnostic_icons) do
+						local hl = "DiagnosticSign" .. type
+						vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+					end
 
 				end,
 			})

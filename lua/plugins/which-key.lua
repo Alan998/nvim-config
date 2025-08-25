@@ -57,11 +57,13 @@ return {
 
 			-- Document existing key chains
 			spec = {
-				--{ '<leader>c', group = '[C]ode LSP', mode = { 'n', 'x' } },
-				--{ '<leader>d', group = '[D]ocument / [D]ebug print' },
+				--{ '<leader>c', group = 'Code LSP', mode = { 'n', 'x' } },
+				{ '<leader>d', group = 'Diagnostic' },
 				{ '<leader>f', group = 'Find' },
-				{ '<leader>s', group = 'Session' },
+				{ 'gr', group = 'Lsp default bindings'},
+				-- { '<leader>s', group = 'Session' },
 				{ '<leader>t', group = 'Toggle' },
+				{ '<leader>U', group = 'Undo' },
 				{ '<leader>u', group = 'Surround pairs' },
 				{ '<leader>w', group = 'Window' },
 				{ '<leader>x', group = 'Trouble' }
