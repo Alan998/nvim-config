@@ -42,8 +42,18 @@ return {
 			-- change highlight of group Substitute so plugin flash's labels have different colors
 			-- overrides = { Substitute = { fg = '#1d2021', bg = '#ebdbb2' } },
 			overrides = {
+				-- Flash
 				Substitute = { fg = '#1d2021', bg = '#d3869b' },
+
 				--LspReferenceText = { bg = '#504945' }
+
+				-- Diffview
+				-- DiffviewDiffAddAsDelete = { bg = '#431313' },
+				-- DiffviewDiffDelete = { bg = 'none', fg = '#3c3836' },
+				-- DiffDelete = {bg = "#37222c"},
+				-- DiffAdd = {bg = "#20303b"},
+				-- DiffChange = {bg = "#1f2231"},
+				-- DiffText = {bg = "#394b70"},
 			},
 			dim_inactive = true,
 			transparent_mode = true,

@@ -17,7 +17,7 @@ return {
 	},
 	config = function ()
 		require('focus').setup()
-		local ignore_filetypes = { 'neo-tree', 'trouble' }
+		local ignore_filetypes = { 'neo-tree', 'trouble', 'DiffviewFiles' }
 		local ignore_buftypes = { 'nofile', 'popup', 'prompt' }
 
 		local augroup =

@@ -53,7 +53,7 @@ return {
 					pair = '()',
 					-- neigh_pattern = '.[%s%z]',
 					neigh_pattern = '.[%s%z%)]',
-					register = { cr = false },
+					register = { cr = true },
 					-- foo|bar -> press '(' -> foo(bar
 					-- foobar| -> press '(' -> foobar()
 					-- |foobar -> press '(' -> (foobar
@@ -65,14 +65,14 @@ return {
 					action = 'closeopen',
 					pair = '""',
 					neigh_pattern = '[^%w\\][^%w]',
-					register = { cr = false },
+					register = { cr = true },
 				},
 				-- Single quote: Prevent pairing if either side is a letter
 				["'"] = {
 					action = 'closeopen',
 					pair = "''",
 					neigh_pattern = '[^%w\\][^%w]',
-					register = { cr = false },
+					register = { cr = true },
 				},
 				-- Backtick: Prevent pairing if either side is a letter
 				['`'] = {

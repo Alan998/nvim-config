@@ -6,6 +6,7 @@ return {
 		cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
 		keys = {
 			{ '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Open diff view' },
+			{ '<leader>gc', '<cmd>DiffviewClose<cr>', desc = 'Close diff view' },
 			{ '<leader>gh', '<cmd>DiffviewFileHistory %<cr>', desc = 'Open file history' },
 			{ '<leader>gb', '<cmd>DiffviewOpen origin/HEAD...HEAD --imply-local<cr>', desc = 'Review branch changes' },
 			{
