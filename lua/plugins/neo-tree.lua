@@ -32,7 +32,7 @@ return {
 
 				-- Windows: Without removing the file from the path, it opens in code.exe instead of explorer.exe
 				local p
-				local lastSlashIndex = path:match("^.+()\\[^\\]*$") -- Match the last slash and everything before it
+				local lastSlashIndex = path:match('^.+()\\[^\\]*$') -- Match the last slash and everything before it
 				if lastSlashIndex then
 					p = path:sub(1, lastSlashIndex - 1) -- Extract substring before the last slash
 				else

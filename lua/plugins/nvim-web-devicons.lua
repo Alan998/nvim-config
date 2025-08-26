@@ -1,10 +1,10 @@
 return {
-	"nvim-tree/nvim-web-devicons",
+	'nvim-tree/nvim-web-devicons',
 	opts = {
 		override = {
 			makefile = {
-				icon = "",
-				name = "makefile"
+				icon = '',
+				name = 'makefile'
 			},
 		},
 	},

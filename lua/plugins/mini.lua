@@ -1,10 +1,10 @@
 return {
 	-- auto pairs
 	{
-		"echasnovski/mini.pairs",
+		'echasnovski/mini.pairs',
 		enabled = true,
-		event = "VeryLazy",
-		version = "*",
+		event = 'VeryLazy',
+		version = '*',
 		opts = {
 			-- In which modes mappings from this `config` should be created
 			modes = { insert = true, command = false, terminal = false },
@@ -17,68 +17,68 @@ return {
 			-- `<CR>`, `'` does not insert pair after a letter.
 			-- Only parts of tables can be tweaked (others will use these defaults).
 			mappings = {
-				[")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
-				["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
-				["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
-				["["] = {
-					action = "open",
-					pair = "[]",
-					neigh_pattern = ".[%s%z%)}%]]",
+				[')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+				[']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+				['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+				['['] = {
+					action = 'open',
+					pair = '[]',
+					neigh_pattern = '.[%s%z%)}%]]',
 					register = { cr = false },
-					-- foo|bar -> press "[" -> foo[bar
-					-- foobar| -> press "[" -> foobar[]
-					-- |foobar -> press "[" -> [foobar
-					-- | foobar -> press "[" -> [] foobar
-					-- foobar | -> press "[" -> foobar []
-					-- {|} -> press "[" -> {[]}
-					-- (|) -> press "[" -> ([])
-					-- [|] -> press "[" -> [[]]
+					-- foo|bar -> press '[' -> foo[bar
+					-- foobar| -> press '[' -> foobar[]
+					-- |foobar -> press '[' -> [foobar
+					-- | foobar -> press '[' -> [] foobar
+					-- foobar | -> press '[' -> foobar []
+					-- {|} -> press '[' -> {[]}
+					-- (|) -> press '[' -> ([])
+					-- [|] -> press '[' -> [[]]
 				},
-				["{"] = {
-					action = "open",
-					pair = "{}",
-					-- neigh_pattern = ".[%s%z%)}]",
-					neigh_pattern = ".[%s%z%)}%]]",
-					register = { cr = false },
-					-- foo|bar -> press "{" -> foo{bar
-					-- foobar| -> press "{" -> foobar{}
-					-- |foobar -> press "{" -> {foobar
-					-- | foobar -> press "{" -> {} foobar
-					-- foobar | -> press "{" -> foobar {}
-					-- (|) -> press "{" -> ({})
-					-- {|} -> press "{" -> {{}}
+				['{'] = {
+					action = 'open',
+					pair = '{}',
+					-- neigh_pattern = '.[%s%z%)}]',
+					neigh_pattern = '.[%s%z%)}%]]',
+					register = { cr = true },
+					-- foo|bar -> press '{' -> foo{bar
+					-- foobar| -> press '{' -> foobar{}
+					-- |foobar -> press '{' -> {foobar
+					-- | foobar -> press '{' -> {} foobar
+					-- foobar | -> press '{' -> foobar {}
+					-- (|) -> press '{' -> ({})
+					-- {|} -> press '{' -> {{}}
 				},
-				["("] = {
-					action = "open",
-					pair = "()",
-					-- neigh_pattern = ".[%s%z]",
-					neigh_pattern = ".[%s%z%)]",
+				['('] = {
+					action = 'open',
+					pair = '()',
+					-- neigh_pattern = '.[%s%z]',
+					neigh_pattern = '.[%s%z%)]',
 					register = { cr = false },
-					-- foo|bar -> press "(" -> foo(bar
-					-- foobar| -> press "(" -> foobar()
-					-- |foobar -> press "(" -> (foobar
-					-- | foobar -> press "(" -> () foobar
-					-- foobar | -> press "(" -> foobar ()
+					-- foo|bar -> press '(' -> foo(bar
+					-- foobar| -> press '(' -> foobar()
+					-- |foobar -> press '(' -> (foobar
+					-- | foobar -> press '(' -> () foobar
+					-- foobar | -> press '(' -> foobar ()
 				},
 				-- Single quote: Prevent pairing if either side is a letter
 				['"'] = {
-					action = "closeopen",
+					action = 'closeopen',
 					pair = '""',
-					neigh_pattern = "[^%w\\][^%w]",
+					neigh_pattern = '[^%w\\][^%w]',
 					register = { cr = false },
 				},
 				-- Single quote: Prevent pairing if either side is a letter
 				["'"] = {
-					action = "closeopen",
+					action = 'closeopen',
 					pair = "''",
-					neigh_pattern = "[^%w\\][^%w]",
+					neigh_pattern = '[^%w\\][^%w]',
 					register = { cr = false },
 				},
 				-- Backtick: Prevent pairing if either side is a letter
-				["`"] = {
-					action = "closeopen",
-					pair = "``",
-					neigh_pattern = "[^%w\\][^%w]",
+				['`'] = {
+					action = 'closeopen',
+					pair = '``',
+					neigh_pattern = '[^%w\\][^%w]',
 					register = { cr = false },
 				},
 			},

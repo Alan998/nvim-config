@@ -46,13 +46,18 @@ return {
 		completion = {
 			-- By default, you may press `<c-space>` to show the documentation.
 			-- Optionally, set `auto_show = true` to show the documentation after a delay.
-			documentation = { auto_show = false, auto_show_delay_ms = 500 },
+			documentation = {
+				auto_show = false,
+				auto_show_delay_ms = 500,
+				border = 'rounded',
+			},
 			list = {
 				-- When preselect is `true`, it will automatically select the first item in the completion list
 				-- When auto_insert `true`, it inserts the completion item automatically when selecting it
 				--auto_show = true,
 				selection = { preselect = false, auto_insert = true },
 			},
+			--menu = {border = "rounded",}
 		},
 		cmdline = {
 			enabled = true,

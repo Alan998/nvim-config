@@ -1,5 +1,5 @@
 -- Telescope is a fuzzy finder that comes with a lot of different things that
--- it can fuzzy find! It's more than just a "file finder", it can search
+-- it can fuzzy find! It's more than just a 'file finder', it can search
 -- many different aspects of Neovim, your workspace, LSP, and more!
 --
 -- The easiest way to use Telescope, is to start by doing something like:
@@ -81,7 +81,8 @@ return {
 			{ '<leader>fk', '<cmd>Telescope keymaps<CR>',  desc = 'Find keymaps' },
 			{ '<leader>fl', '<cmd>Telescope loclist<CR>', desc = 'Find location list' },
 			{ '<leader>fm', '<cmd>Telescope marks<CR>', desc = 'Find marks' },
-			{ '<leader>fr', '<cmd>Telescope oldfiles<CR>', desc = 'Find recent files' },
+			{ '<leader>fo', '<cmd>Telescope oldfiles<CR>', desc = 'Find recent files' },
+			{ '<leader>fr', '<cmd>Telescope resume<CR>', desc = 'Resume recent search' },
 			{ '<leader>fw', '<cmd>Telescope grep_string<CR>', desc = 'Find current word' },
 		},
 		config = function()
@@ -133,18 +134,18 @@ return {
 		},
 	},
 	{
-		"debugloop/telescope-undo.nvim",
+		'debugloop/telescope-undo.nvim',
 		dependencies = {
 			{
-				"nvim-telescope/telescope.nvim",
-				dependencies = { "nvim-lua/plenary.nvim" },
+				'nvim-telescope/telescope.nvim',
+				dependencies = { 'nvim-lua/plenary.nvim' },
 			},
 		},
 		keys = {
 			{
-				"<leader>U",
-				"<cmd>Telescope undo<cr>",
-				desc = "undo history",
+				'<leader>U',
+				'<cmd>Telescope undo<cr>',
+				desc = 'undo history',
 			},
 		},
 		opts = {
@@ -159,8 +160,8 @@ return {
 			-- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
 			-- configs for us. We won't use data, as everything is in it's own namespace (telescope
 			-- defaults, as well as each extension).
-			require("telescope").setup(opts)
-			require("telescope").load_extension("undo")
+			require('telescope').setup(opts)
+			require('telescope').load_extension('undo')
 		end,
 	},
 }

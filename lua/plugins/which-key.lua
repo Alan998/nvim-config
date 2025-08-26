@@ -60,6 +60,7 @@ return {
 				--{ '<leader>c', group = 'Code LSP', mode = { 'n', 'x' } },
 				{ '<leader>d', group = 'Diagnostic' },
 				{ '<leader>f', group = 'Find' },
+				{ '<leader>g', group = 'Git diff'},
 				{ 'gr', group = 'Lsp default bindings'},
 				-- { '<leader>s', group = 'Session' },
 				{ '<leader>t', group = 'Toggle' },

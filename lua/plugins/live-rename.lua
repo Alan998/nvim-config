@@ -4,7 +4,7 @@ return {
 	keys = {
 		{ '<leader>R',
 			function()
-				require("live-rename").rename({text = "", insert = true})
+				require('live-rename').rename({text = '', insert = true})
 			end,
 			desc = 'Rename variable under cursor'
 		},
