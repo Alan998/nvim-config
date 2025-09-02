@@ -35,6 +35,13 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 	end,
 })
 
+-- ensure filetype is detected on buffer entry
+vim.api.nvim_create_autocmd('BufReadPost', {
+	callback = function()
+		vim.cmd('filetype detect')
+	end
+})
+
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd('FileType', {
 	group = augroup('close_with_q'),

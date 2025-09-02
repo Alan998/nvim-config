@@ -49,7 +49,6 @@ return {
 			documentation = {
 				auto_show = false,
 				auto_show_delay_ms = 500,
-				border = 'rounded',
 			},
 			list = {
 				-- When preselect is `true`, it will automatically select the first item in the completion list

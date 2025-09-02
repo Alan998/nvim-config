@@ -1,8 +1,7 @@
 return {
 	{ -- Highlight, edit, and navigate code
 		'nvim-treesitter/nvim-treesitter',
-		lazy = true,
-		event = 'BufEnter',
+		event = { 'BufEnter', 'BufReadPre', 'BufNewFile' },
 		build = ':TSUpdate',
 		cmd = {
 			'TSInstallInfo',
