@@ -1,7 +1,6 @@
 -- Resizes split windows automatically 
 return {
 	'nvim-focus/focus.nvim', version = '*',
-	--event = 'WinEnter',
 	event = 'VeryLazy',
 	cmd = { 'FocusEnable', 'FocusToggle', 'FocusDisable', 'FocusSplitNicely' },
 	keys = {

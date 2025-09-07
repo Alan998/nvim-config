@@ -10,6 +10,7 @@ vim.g.rustaceanvim = {
 				-- rust-analyzer language server configuration
 				['rust-analyzer'] = {
 					checkOnType = true,
+					checkOnSave = false,
 				},
 			},
 	},

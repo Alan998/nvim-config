@@ -3,7 +3,7 @@
 return {
 	'm4xshen/hardtime.nvim',
 	--enabled = false,
-	event = 'BufReadPost',
+	event = 'VeryLazy',
 	-- add nvim-notify to dependencies to show log messages using nvim-notify
 	dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
 	cmd = { 'Hardtime' },

@@ -28,7 +28,7 @@ return {
 		opts = {
 			undercurl = true,
 			underline = true,
-			bold = true,
+			bold = false,
 			italic = {
 				strings = true,
 				comments = true,
