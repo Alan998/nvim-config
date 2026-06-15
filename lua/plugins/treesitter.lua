@@ -6,7 +6,7 @@ return {
 		cmd = {
 			'TSInstallInfo',
 		},
-		main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+		-- Sets main module to use for opts
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
 			ensure_installed = { 'bash', 'c', 'cpp', 'go', 'lua', 'luadoc', 'markdown', 'python', 'rust' },

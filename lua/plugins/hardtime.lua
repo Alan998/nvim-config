@@ -2,7 +2,7 @@
 -- NOTE: Clean logs regularly ( logs are located in ~/.local/state/nvim/log )
 return {
 	'm4xshen/hardtime.nvim',
-	--enabled = false,
+	enabled = false,
 	event = 'VeryLazy',
 	-- add nvim-notify to dependencies to show log messages using nvim-notify
 	dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim', 'rcarriga/nvim-notify' },
