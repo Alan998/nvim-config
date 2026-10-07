@@ -1,19 +1,31 @@
 return {
 	{
 		'folke/tokyonight.nvim',
-		enabled = false,
+		enabled = true,
 		lazy = true,
 		priority = 1000,
 		opts = {
 			style = 'storm',
+			transparent = true,
 			styles = {
 				keywords = { italic = false },
 			},
-			-- change some hilight groups
+			-- change some highlight groups
 			on_highlights = function(hl, c)
 				hl.MatchParen = {
 					bg = c.orange,
 					fg = c.bg_dark,
+				}
+
+				-- Jump Labels
+				hl.FlashLabel = {
+					bg = "#ffe964", fg = "#1f2335", bold = true
+				}
+				hl.FlashCurrent = {
+					bg = "#73daca", fg = "#1f2335", bold = true
+				}
+				hl.FlashMatch = {
+					bg = "#1abc9c", fg = "#1f2335", bold = true
 				}
 			end,
 		},
@@ -21,7 +33,7 @@ return {
 	},
 	{
 		'ellisonleao/gruvbox.nvim',
-		--enabled = false,
+		enabled = false,
 		lazy = true,
 		priority = 1000,
 		terminal_colors = true,

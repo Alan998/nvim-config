@@ -19,7 +19,8 @@ return {
 	opts = function()
 		return {
 			options = {
-				theme = 'powerline',
+				-- theme = 'powerline',
+				theme = 'tokyonight',
 				component_separators = { left = '|', right = '|' },
 				disabled_filetypes = { statusline = { 'dashboard', 'alpha' } },
 			},
@@ -51,12 +52,12 @@ return {
 							hint = '󰌵 ',
 							info = ' ',
 						},
-						diagnostics_color = {
-							error = {fg = colors.red},
-							warn  = {fg = colors.yellow},
-							info  = {fg = colors.blue},
-							hint  = {fg = colors.green},
-						},
+						-- diagnostics_color = {
+						-- 	error = {fg = colors.red},
+						-- 	warn  = {fg = colors.yellow},
+						-- 	info  = {fg = colors.blue},
+						-- 	hint  = {fg = colors.green},
+						-- },
 					},
 				},
 				lualine_x = {
