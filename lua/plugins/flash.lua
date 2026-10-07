@@ -3,10 +3,10 @@
 -- location.
 return {
 	'folke/flash.nvim',
-	event = 'VeryLazy',
+	event = "VeryLazy",
 	---@type Flash.Config
 	opts = {
-		--label = { rainbow = { enabled = true }, },
+		--label = { rainbow = { enabled = true, shade=4 }, },
 		modes = {
 			-- search enabled by default, can be toggled by <c-s>
 			search = { enabled = false },
@@ -15,8 +15,11 @@ return {
 				jump_labels = true,
 				-- When using jump labels, don't use these keys
 				-- This allows using those keys directly after the motion
-				label = { exclude = 'hjkliardcopxyDPY' },
+				label = { exclude = 'hjkliardcpxyDPY' },
 			},
+		},
+		prompt = {
+			prefix = { {" ", "FlashPromptIcon" } },
 		},
 	},
 	-- stylua: ignore
