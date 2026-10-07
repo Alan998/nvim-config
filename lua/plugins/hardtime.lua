@@ -13,8 +13,8 @@ return {
 	opts = {
 		-- enabling scrolling up and down
 		disabled_keys = {
-			--['<Up>'] = {},
-			--['<Down>'] = {},
+			['<Up>'] = {},
+			['<Down>'] = {},
 		},
 		-- maximum count of repeated key presses allowed
 		max_count = 5,
